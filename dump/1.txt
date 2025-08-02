@@ -1,0 +1,184 @@
+project_id='UHJvamVjdEludGVybmFsSWQ6NDE5MTQzNDk=' traces=resource_spans {
+  resource {
+    attributes {
+      key: "telemetry.sdk.language"
+      value {
+        string_value: "python"
+      }
+    }
+    attributes {
+      key: "telemetry.sdk.name"
+      value {
+        string_value: "opentelemetry"
+      }
+    }
+    attributes {
+      key: "telemetry.sdk.version"
+      value {
+        string_value: "1.36.0"
+      }
+    }
+    attributes {
+      key: "service.name"
+      value {
+        string_value: "unknown_service"
+      }
+    }
+  }
+  scope_spans {
+    scope {
+      name: "gcp.vertex.agent"
+    }
+    spans {
+      trace_id: "\364\335\033\022\227K\347\344#\236:2\312\215\026\330"
+      span_id: "\264Ps7\217\264\r\247"
+      parent_span_id: "m\244M\354\254\262\257\210"
+      name: "execute_tool add_numbers_impl"
+      kind: SPAN_KIND_INTERNAL
+      start_time_unix_nano: 1754098691557555000
+      end_time_unix_nano: 1754098691557718000
+      attributes {
+        key: "gen_ai.system"
+        value {
+          string_value: "gcp.vertex.agent"
+        }
+      }
+      attributes {
+        key: "gen_ai.operation.name"
+        value {
+          string_value: "execute_tool"
+        }
+      }
+      attributes {
+        key: "gen_ai.tool.name"
+        value {
+          string_value: "add_numbers_impl"
+        }
+      }
+      attributes {
+        key: "gen_ai.tool.description"
+        value {
+          string_value: "Adds two numbers together."
+        }
+      }
+      attributes {
+        key: "gen_ai.tool.call.id"
+        value {
+          string_value: "adk-99429974-12c7-4844-beb3-b96ac2743218"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.tool_call_args"
+        value {
+          string_value: "{\"a\": 2, \"b\": 3}"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.event_id"
+        value {
+          string_value: "00008656-1267-4605-9bb5-ba9a03f69c7a"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.tool_response"
+        value {
+          string_value: "{\"status\": \"success\", \"result\": 5, \"message\": \"2 + 3 = 5\"}"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.llm_request"
+        value {
+          string_value: "{}"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.llm_response"
+        value {
+          string_value: "{}"
+        }
+      }
+      status {
+      }
+      flags: 256
+    }
+    spans {
+      trace_id: "\364\335\033\022\227K\347\344#\236:2\312\215\026\330"
+      span_id: "m\244M\354\254\262\257\210"
+      parent_span_id: "\375\264\345\226\313\2023h"
+      name: "call_llm"
+      kind: SPAN_KIND_INTERNAL
+      start_time_unix_nano: 1754098690275790000
+      end_time_unix_nano: 1754098691557766000
+      attributes {
+        key: "gen_ai.system"
+        value {
+          string_value: "gcp.vertex.agent"
+        }
+      }
+      attributes {
+        key: "gen_ai.request.model"
+        value {
+          string_value: "gemini-2.0-flash"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.invocation_id"
+        value {
+          string_value: "e-ab447a9f-e0eb-4685-bc06-d5466b3b4f39"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.session_id"
+        value {
+          string_value: "math_agent_session"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.event_id"
+        value {
+          string_value: "7c2b52da-4bda-4a00-a5e7-f3936279ad50"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.llm_request"
+        value {
+          string_value: "{\"model\": \"gemini-2.0-flash\", \"config\": {\"system_instruction\": \"You are a friendly math assistant. Help users with basic arithmetic operations like addition, subtraction, multiplication, and division. Always be encouraging and explain your calculations clearly. When a user asks for a math operation, use the appropriate tool to perform the calculation and provide a clear, friendly response with the result.\\n\\nYou are an agent. Your internal name is \\\"MathAgent\\\".\", \"tools\": [{\"function_declarations\": [{\"description\": \"Adds two numbers together.\", \"name\": \"add_numbers_impl\", \"parameters\": {\"properties\": {\"a\": {\"type\": \"NUMBER\"}, \"b\": {\"type\": \"NUMBER\"}}, \"required\": [\"a\", \"b\"], \"type\": \"OBJECT\"}, \"response\": {\"type\": \"OBJECT\"}}, {\"description\": \"Subtracts the second number from the first number.\", \"name\": \"subtract_numbers_impl\", \"parameters\": {\"properties\": {\"a\": {\"type\": \"NUMBER\"}, \"b\": {\"type\": \"NUMBER\"}}, \"required\": [\"a\", \"b\"], \"type\": \"OBJECT\"}, \"response\": {\"type\": \"OBJECT\"}}, {\"description\": \"Multiplies two numbers together.\", \"name\": \"multiply_numbers_impl\", \"parameters\": {\"properties\": {\"a\": {\"type\": \"NUMBER\"}, \"b\": {\"type\": \"NUMBER\"}}, \"required\": [\"a\", \"b\"], \"type\": \"OBJECT\"}, \"response\": {\"type\": \"OBJECT\"}}, {\"description\": \"Divides the first number by the second number.\", \"name\": \"divide_numbers_impl\", \"parameters\": {\"properties\": {\"a\": {\"type\": \"NUMBER\"}, \"b\": {\"type\": \"NUMBER\"}}, \"required\": [\"a\", \"b\"], \"type\": \"OBJECT\"}, \"response\": {\"type\": \"OBJECT\"}}]}], \"labels\": {\"adk_agent_name\": \"MathAgent\"}}, \"contents\": [{\"parts\": [{\"text\": \"add 2 and 3\"}], \"role\": \"user\"}]}"
+        }
+      }
+      attributes {
+        key: "gcp.vertex.agent.llm_response"
+        value {
+          string_value: "{\"content\":{\"parts\":[{\"function_call\":{\"args\":{\"a\":2,\"b\":3},\"name\":\"add_numbers_impl\"}}],\"role\":\"model\"},\"usage_metadata\":{\"candidates_token_count\":9,\"candidates_tokens_details\":[{\"modality\":\"TEXT\",\"token_count\":9}],\"prompt_token_count\":164,\"prompt_tokens_details\":[{\"modality\":\"TEXT\",\"token_count\":164}],\"total_token_count\":173,\"traffic_type\":\"ON_DEMAND\"}}"
+        }
+      }
+      attributes {
+        key: "gen_ai.usage.input_tokens"
+        value {
+          int_value: 164
+        }
+      }
+      attributes {
+        key: "gen_ai.usage.output_tokens"
+        value {
+          int_value: 173
+        }
+      }
+      attributes {
+        key: "wandb.thread_id"
+        value {
+          string_value: "math_agent_session"
+        }
+      }
+      attributes {
+        key: "wandb.is_turn"
+        value {
+          bool_value: true
+        }
+      }
+      status {
+      }
+      flags: 256
+    }
+  }
+}
+ wb_user_id='VXNlcjoyMzU4MjMx'

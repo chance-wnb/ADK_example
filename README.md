@@ -1,6 +1,6 @@
-# Simple Math Agent
+# Simple Math Agent with OpenTelemetry Integration
 
-A basic arithmetic agent built with Google Agent Development Kit (ADK) that can perform addition, subtraction, multiplication, and division operations.
+A basic arithmetic agent built with Google Agent Development Kit (ADK) that can perform addition, subtraction, multiplication, and division operations. Now integrated with OpenTelemetry and Weave for comprehensive tracing and observability.
 
 ## Features
 
@@ -10,6 +10,8 @@ A basic arithmetic agent built with Google Agent Development Kit (ADK) that can 
 - Division of two numbers (with zero division protection)
 - Friendly, encouraging responses
 - Clear explanations of calculations
+- **OpenTelemetry integration with Weave for tracing and observability**
+- **InMemoryRunner execution pattern for better performance**
 
 ## Setup
 
@@ -36,7 +38,10 @@ A basic arithmetic agent built with Google Agent Development Kit (ADK) that can 
 4. **Configure environment:**
    ```bash
    cp .env.example .env
-   # Edit .env with your credentials
+   # Edit .env with your credentials including:
+   # - WANDB_API_KEY: Your W&B API key for OpenTelemetry tracing
+   # - WANDB_PROJECT: Your W&B project ID (e.g., "username/project-name")
+   # - Google Cloud or AI Studio credentials
    ```
 
 5. **Authenticate with Google Cloud (if using Vertex AI):**
@@ -47,7 +52,16 @@ A basic arithmetic agent built with Google Agent Development Kit (ADK) that can 
 
 ## Running the Agent
 
-### CLI Mode
+### New: Direct Python Execution with OTEL Integration
+```bash
+# Interactive mode
+python main.py
+
+# Single query mode
+python main.py "What is 5 plus 3?"
+```
+
+### Traditional ADK CLI Mode
 ```bash
 cd math_agent
 uv run adk run .
@@ -63,8 +77,7 @@ uv run adk web
 # Activate the uv environment
 uv shell
 # Then run normally
-cd math_agent
-adk run .
+python main.py
 ```
 
 ## Development
@@ -114,6 +127,18 @@ uv run pre-commit run --all-files
 ## Architecture
 
 The agent consists of:
-- **Main Agent**: `math_agent` - coordinates user requests and delegates to appropriate tools
-- **Tools**: Four mathematical operation functions that return structured results
+- **Main Agent**: `LlmAgent` (math_agent) - coordinates user requests and delegates to appropriate tools
+- **Tools**: Four mathematical operation functions wrapped as `FunctionTool` instances
+- **Runner**: `InMemoryRunner` for efficient execution
 - **Model**: Uses Gemini 2.0 Flash for natural language understanding and response generation
+- **Observability**: OpenTelemetry integration with Weave for comprehensive tracing
+- **Configuration**: Environment-based configuration for W&B and Google Cloud credentials
+
+## OpenTelemetry Integration
+
+This implementation uses OpenTelemetry to trace agent interactions and send them to Weave for analysis:
+
+- **Automatic Tracing**: All agent reasoning and tool calls are automatically traced
+- **Weave Integration**: Traces are sent to W&B's Weave platform for visualization
+- **Environment Configuration**: Uses `.env` file for W&B API key and project configuration
+- **Batch Processing**: Uses `BatchSpanProcessor` for efficient trace export
